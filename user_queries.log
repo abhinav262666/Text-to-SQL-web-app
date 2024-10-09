@@ -1,0 +1,22 @@
+2024-09-24 03:57:19.183010 - User Query: Find the employee_id, name and department of the employee with maximum salary
+2024-09-24 03:58:45.931188 - Generated SQL Query: SELECT T1.employee_id, T1.name, T1.department FROM employees AS T1 JOIN employees AS T2 ON T1.employee_id = T2.employee_id ORDER BY T2.salary DESC LIMIT 1
+2024-09-24 03:59:55.978936 - User Query: Find the employee_id, name and department of the employee with maximum salary
+2024-09-24 04:01:01.148864 - Generated SQL Query: SELECT T1.employee_id, T1.name, T1.department FROM employees AS T1 JOIN employees AS T2 ON T1.employee_id = T2.employee_id ORDER BY T2.salary DESC LIMIT 1
+2024-09-24 04:05:49.168826 - User Query: Find the employee_id, name and department of the employee with minimum salary
+2024-09-24 04:07:01.064968 - Generated SQL Query: SELECT employee_id, name, department FROM employees ORDER BY salary ASC LIMIT 1
+2024-09-24 14:04:54.111713 - User Query: Tell the department id and department name of the department whose location is in New York
+2024-09-24 14:05:08.639291 - Generated SQL Query: SELECT T1.department_id, T1.department_name FROM departments AS T1 JOIN locations AS T2 ON T1.department_id = T2.department_id WHERE T2.location = 'New York'
+2024-09-24 14:08:14.161950 - User Query: Select all the departments whose location is New York and Boston
+2024-09-24 14:08:32.151143 - Generated SQL Query: SELECT department_name FROM departments WHERE location = 'New York' INTERSECT SELECT department_name FROM departments WHERE location = 'Boston'
+2024-09-24 14:08:52.556712 - User Query: Select all the departments whose location is New York 
+2024-09-24 14:09:03.270265 - Generated SQL Query: SELECT department_name FROM departments WHERE location = 'New York'
+2024-09-24 14:17:49.726403 - User Query: find the sale id and product name of product which has maximum amount
+2024-09-24 14:18:07.318268 - Generated SQL Query: SELECT T1.sale_id, T2.product FROM sales AS T1 JOIN product AS T2 ON T1.product = T2.product GROUP BY T1.product ORDER BY sum(T1.amount) DESC LIMIT 1
+2024-09-24 14:18:32.371421 - User Query: find the sale id and product which has maximum amount
+2024-09-24 14:18:43.830294 - Generated SQL Query: SELECT sale_id, product FROM sales ORDER BY amount DESC LIMIT 1
+2024-09-24 14:19:39.567784 - User Query: Find the employee_id, name and department of the employee with maximum salary
+2024-09-24 14:19:50.679253 - Generated SQL Query: SELECT T1.employee_id, T1.name, T1.department FROM employees AS T1 JOIN employees AS T2 ON T1.employee_id = T2.employee_id ORDER BY T2.salary DESC LIMIT 1
+2024-09-24 14:43:24.249884 - User Query: Find the employee_id, name and department of the employee with maximum salary
+2024-09-24 14:43:46.995322 - Generated SQL Query: SELECT T1.employee_id, T1.name, T1.department FROM employees AS T1 JOIN employees AS T2 ON T1.employee_id = T2.employee_id ORDER BY T2.salary DESC LIMIT 1
+2024-09-24 14:44:53.537620 - User Query: find the sale id and product which has maximum amount
+2024-09-24 14:45:07.377955 - Generated SQL Query: SELECT sale_id, product FROM sales ORDER BY amount DESC LIMIT 1

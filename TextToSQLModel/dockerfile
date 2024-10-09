@@ -1,0 +1,23 @@
+# Use the official Python image from the Docker Hub
+FROM python:3.9-slim
+
+# Set the working directory
+WORKDIR /app
+
+# Copy the requirements.txt first for better caching
+COPY requirements.txt .
+
+# Install dependencies
+RUN pip install -r requirements.txt
+
+# Copy the model code into the container
+COPY ModelInference.py .
+
+# Download the model and tokenizer files during the build process to avoid downloading them every time
+RUN python -c "from transformers import AutoTokenizer, AutoModelForSeq2SeqLM; AutoTokenizer.from_pretrained('juierror/flan-t5-text2sql-with-schema-v2'); AutoModelForSeq2SeqLM.from_pretrained('juierror/flan-t5-text2sql-with-schema-v2')"
+
+# Expose the port the app runs on
+EXPOSE 8000
+
+# Command to run the app
+CMD ["uvicorn", "ModelInference:app", "--host", "0.0.0.0", "--port", "8000"]
